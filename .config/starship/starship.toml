@@ -1,0 +1,64 @@
+add_newline = false
+
+# Use custom format
+#format = """
+#[┏](bold #BB0A1E)$username$hostname$git_branch$git_commit$git_state$git_status[\\]](bold #BB0A1E)
+#[┖\\[$directory$rust](bold #BB0A1E) """
+
+format = """
+[$rust\\[$directory$git_branch$git_status
+\\[$time\\]\\[$username@$hostname\\]:](bold bright-black) """
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "bright-black"
+format = "[$time]($style)"
+
+[username]
+style_user = "bright-blue"
+style_root = "bright-black bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+trim_at = ""
+format = "[$hostname]($style)"
+style = "bright-blue"
+disabled = false
+
+[directory]
+truncation_length = 8
+truncate_to_repo = true
+format = "($read_only\\]\\[)[$path]($style)"
+style = "purple"
+disabled = false
+#read_only = "🔒"
+#read_only_style = ""
+#truncation_symbol = ""
+#home_symbol = "🏡"
+
+[git_branch]
+format = "\\]\\[$symbol[$branch]($style)"
+style = "bright-black"
+symbol = "🌱"
+
+#[git_commit]
+
+#[git_state]
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)\\]"
+style = "white"
+ahead = "⬆️${count}"
+behind = "⬇️${count}"
+modified = "❕"
+untracked = "❔"
+staged = "➕"
+diverged = "↕️"
+
+[rust]
+format = "\\[$symbol\\]"
+symbol = "🦀"
