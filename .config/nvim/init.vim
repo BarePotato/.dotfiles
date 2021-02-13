@@ -128,7 +128,7 @@ endfunction
 command! -nargs=0 Doc :call <SID>CargoDoc()
 function! s:CargoDoc()
 	if &filetype == 'rust'
-		!cargo doc -q --open 
+		:silent !cargo doc -q --open 
 	endif
 endfunction
 
