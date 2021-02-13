@@ -1,0 +1,64 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 1
+}
+
+order += "ethernet _first_"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "cpu_temperature 1"
+order += "load"
+order += "memory"
+order += "disk /"
+order += "tztime local"
+
+ethernet _first_ {
+        format_up = " %ip (%speed)"
+        format_down = "🐬So long, thanks for the fish🐟"
+        separator = false
+}
+
+cpu_usage {
+		format = "╓┤%usage"
+		max_threshold = 80
+}
+
+cpu_temperature 0 {
+		format = "%degreesc🌡️"
+		path = "/sys/class/hwmon/hwmon0/temp1_input"
+		separator = false
+		separator_block_width = 0
+}
+
+cpu_temperature 1 {
+		format = "%degreesc"
+		path = "/sys/class/hwmon/hwmon1/temp1_input"
+}
+
+load {
+        format = "%1min"
+        separator = false
+        separator_block_width = 0
+}
+
+memory {
+        format = "║%available├╖"
+        separator = false
+}
+
+disk "/" {
+        format = "╓┤💽%avail├╖"
+        separator = false
+}
+
+tztime local {
+        format = "📅%A %d-%b-%Y %T %Z  "
+}
