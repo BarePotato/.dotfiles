@@ -27,7 +27,13 @@ alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 #//----------[ PATH ]
 set -gx PATH ~/.cargo/bin $PATH
 
-#set -gx BROWSER firefox
-
 #//----------[ STARSHIP ]
 starship init fish | source
+
+#//----------[ STARTX ]
+#if status is-login
+	#if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+		#startx -- -keeptty
+	#end
+#end
+
