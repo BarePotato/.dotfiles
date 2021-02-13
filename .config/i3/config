@@ -157,19 +157,19 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 set $shifty 5
 
 mode "resize" {
-        bindsym h resize grow width $shifty px or $shifty ppt
-        bindsym j resize grow height $shifty px or $shifty ppt
-        bindsym k resize shrink height $shifty px or $shifty ppt
-        bindsym l resize shrink width $shifty px or $shifty ppt
-        # same bindings, but for the arrow keys
-        bindsym Left resize grow width $shifty px or $shifty ppt
-        bindsym Down resize grow height $shifty px or $shifty ppt
-        bindsym Up resize shrink height $shifty px or $shifty ppt
-        bindsym Right resize shrink width $shifty px or $shifty ppt
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+	bindsym h resize grow width $shifty px or $shifty ppt
+		bindsym j resize grow height $shifty px or $shifty ppt
+		bindsym k resize shrink height $shifty px or $shifty ppt
+		bindsym l resize shrink width $shifty px or $shifty ppt
+# same bindings, but for the arrow keys
+		bindsym Left resize grow width $shifty px or $shifty ppt
+		bindsym Down resize grow height $shifty px or $shifty ppt
+		bindsym Up resize shrink height $shifty px or $shifty ppt
+		bindsym Right resize shrink width $shifty px or $shifty ppt
+# back to normal: Enter or Escape or $mod+r
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+		bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -188,7 +188,7 @@ for_window [window_type="menu"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
-		status_command i3status
+	status_command i3status
 		separator_symbol ║
 }
 

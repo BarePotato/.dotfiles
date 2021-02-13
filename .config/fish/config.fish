@@ -6,7 +6,7 @@ end
 
 #//----------[ Greeting ]
 function fish_greeting
-		printf  '\e[90m%s\n%s\n%s\n%s\n' "                 |               !!!           |\"|      " "     ,,,         |.===.       \  _ _  /       _|_|_     " "    (o o)        {}o o{}     -  (OXO)  -      (o o)     " "ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-"
+	printf  '\e[90m%s\n%s\n%s\n%s\n' "                 |               !!!           |\"|      " "     ,,,         |.===.       \  _ _  /       _|_|_     " "    (o o)        {}o o{}     -  (OXO)  -      (o o)     " "ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-"
 end
 
 #//----------[ Alias ]
@@ -32,8 +32,8 @@ starship init fish | source
 
 #//----------[ STARTX ]
 #if status is-login
-	#if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-		#startx -- -keeptty
-	#end
+#if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+#startx -- -keeptty
+#end
 #end
 

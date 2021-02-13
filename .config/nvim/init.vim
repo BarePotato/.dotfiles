@@ -35,9 +35,9 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : <SID>check_back_space() 
 inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : <SID>check_back_space() ? "\<S-Tab>" : kite#completion#autocomplete()
 "inoremap <silent><expr> <C-Space> coc#refresh()
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+	inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 " get help for word under cursor or relevant doc
 nnoremap <silent> K :call <SID>show_doc()<CR>
