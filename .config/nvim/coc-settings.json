@@ -1,0 +1,15 @@
+{
+	/*"suggest.noselect": false,*/
+	"diagnostic.errorSign": "",
+	"diagnostic.warningSign": "",
+	"diagnostic.hintSign":"ℹ️",
+	"diagnostic.level": "warning",
+	"rust-analyzer.updates.prompt": false,
+	"rust-analyzer.updates.channel": "stable",
+	"rust-analyzer.inlayHints.chainingHints": false,
+	"rust-analyzer.inlayHints.typeHints": false,
+	"rust-analyzer.inlayHints.enable": false,
+	"rust-analyzer.diagnostics.enable": false,
+	"rust-analyzer.diagnostics.enableExperimental":false,
+	"rust-analyzer.lens.enable":false
+}
