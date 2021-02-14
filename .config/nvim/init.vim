@@ -158,6 +158,9 @@ nmap <C-n> :tabe<CR>
 syntax on
 "set t_Co=256
 set t_Co=termguicolors
+if (has("termguicolors"))
+	set termguicolors
+endif
 "set t_ut=
 colo simple-dark
 
