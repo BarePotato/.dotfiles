@@ -15,6 +15,9 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
+"---- Markdown
+let g:markdown_enable_spell_checking = 0
+
 "---- Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
