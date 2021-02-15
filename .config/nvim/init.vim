@@ -1,4 +1,4 @@
-call plug#begin('/home/bare/.vimfiles/pluggs')
+call plug#begin('$HOME/.vimfiles/pluggs')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'pprovost/vim-ps1'
@@ -62,7 +62,7 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 "" THIS IS NOT THE RIGHT ANSWER
 "" BUT it is probably what we want, needs alias in place of env var
 "command! -bang -nargs=*  All call fzf#run(fzf#wrap({'source': 'rg --files --hidden --no-ignore-vcs --glob \"!{node_modules/*,.git/*}"', 'down': '40%', 'options': '--expect=ctrl-t,ctrl-x,ctrl-v --multi --reverse' }))
-nmap <C-f> :Find 
+nmap <C-f> :Find
 
 "---- Undotree
 nnoremap <F5> :UndotreeToggle<cr>
@@ -80,7 +80,7 @@ nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
 "augroup END
 
 "----- Folds
-set viewdir=~/.config/nvim/fold/
+set viewdir=$HOME/.config/nvim/fold/
 augroup FoldKeeper
 	autocmd!
 	autocmd BufWinLeave ?* silent! mkview!
@@ -99,7 +99,7 @@ map <silent> gc <Plug>NERDCommenterToggle
 "let mapleader=","
 let mapleader=" "
 
-" let clipboarDCreateDefaultMappings 
+" let clipboarDCreateDefaultMappings
 set cb=unnamedplus
 
 " Don't enter Ex mode
@@ -128,7 +128,7 @@ endfunction
 command! -nargs=0 Doc :call <SID>CargoDoc()
 function! s:CargoDoc()
 	if &filetype == 'rust'
-		:silent !cargo doc -q --open 
+		:silent !cargo doc -q --open
 	endif
 endfunction
 
@@ -137,16 +137,14 @@ endfunction
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " edit coc-settings.json
-nmap <silent> <leader>cv :e ~/vimfiles/coc-settings.json<CR>
+nmap <silent> <leader>cv :e $HOME/vimfiles/coc-settings.json<CR>
 " edit alacritty.yml
-nmap <silent> <leader>av :e ~/AppData/Roaming/alacritty/alacritty.yml<CR>
+nmap <silent> <leader>av :e $HOME/.config/alacritty/alacritty.yml<CR>
 " edit powershell.ps1
-nmap <silent> <leader>pv :e ~/Documents/PowerShell/profile.ps1<CR>
+nmap <silent> <leader>pv :e $HOME/Documents/PowerShell/profile.ps1<CR>
 " edit windows terminal
-nmap <silent> <leader>wv :e ~/AppData/Local/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json<CR>
+nmap <silent> <leader>wv :e $HOME/AppData/Local/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json<CR>
 
-" lets you backspace over things in normal
-set backspace=indent,eol,start
 " json to jsonc because errors suck
 augroup json_comments
 	autocmd! FileType json set filetype=jsonc
@@ -173,34 +171,19 @@ set signcolumn=number
 " turn off comment insertion
 set formatoptions-=cro
 autocmd FileType * setlocal formatoptions-=cro
-" set textwidth=120
 
 " cursor - blink all, vertical insert, horizontal replace, default otherwise
 set guicursor=a:blinkon100,i-c-ci:ver20,r-cr-o:hor20
 
-set history=1000
-set undolevels=1000
 set wildignore+=*.o,*.a,*.so,.git\*,.svn\*,.hg\*,*\target\*,*.swp,*.bak,*.class,*.pyc
 
 set title
 set novisualbell
 set noerrorbells
-
-" set nobackup
-" set noswapfile
-" set list
-" set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
-" set nowrap
 set tabstop=4
-set smarttab
 set shiftwidth=4
 set shiftround
-set autoindent
 set copyindent
-
-" gutter width
-"set numberwidth=5
 
 " relative line numbers by default
 set number
@@ -218,23 +201,11 @@ set cursorline
 set showmatch
 set matchpairs+=<:>
 
-" close brackets and things
-"inoremap " ""<left>
-"inoremap ' ''<left>
-"inoremap ( ()<left>
-"inoremap [ []<left>
-"inoremap { {}<left>
-"inoremap {<CR> {<CR>}<ESC>O
-"inoremap {;<CR> {<CR>};<ESC>O
-
 " insert a comment header
 nnoremap <silent> gh i//----------[  ]<left><left>
 
 set ignorecase
 set smartcase
-set hlsearch
-" begin search before pressing <CR>
-set incsearch
 
 " popup list height
 set pumheight=10
@@ -254,25 +225,19 @@ nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 
-set showmode
-set showcmd
-
 set mouse=a
 
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 
-set encoding=utf-8
-
-
 " undo
-set undodir=~/.config/nvim/undo/
+set undodir=$HOME/.config/nvim/undo/
 set undofile
 
 " CoC Highlights
-hi CocWarningSign      ctermfg=202  
+hi CocWarningSign      ctermfg=202
 hi CocWarningHighlight ctermfg=202  cterm=underline
 hi CocErrorHighlight   ctermfg=Red  cterm=underline
-hi CocErrorSign 	   ctermfg=Red  
+hi CocErrorSign 	   ctermfg=Red
 " Syntax Highlights
-hi Comment 			   ctermfg=65   guifg=#5f875f 
+hi Comment 			   ctermfg=65   guifg=#5f875f
 hi Normal  			   ctermfg=251  ctermbg=232  guibg=#080808  guifg=#c6c6c6
