@@ -22,7 +22,7 @@ alias cls="clear"
 # poweroff
 alias die="poweroff"
 # git dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias doot="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 #//----------[ PATH ]
 set -gx PATH ~/.cargo/bin $PATH
