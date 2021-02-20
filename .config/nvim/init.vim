@@ -1,7 +1,10 @@
 call plug#begin('$HOME/.vimfiles/pluggs')
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'nvim-lua/lsp_extensions.nvim'
+"Plug 'nvim-lua/completion-nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
-Plug 'pprovost/vim-ps1'
+"Plug 'scrooloose/nerdtree'
+"Plug 'pprovost/vim-ps1'
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -14,6 +17,43 @@ Plug 'aliva/vim-fish'
 Plug 'gabrielelana/vim-markdown'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
+
+"---- LSP
+"set completeopt=menuone,noinsert,noselect
+"set shortmess+=c
+"lua <<EOF
+"local nvim_lsp = require'lspconfig'
+"local on_attach = function(client)
+	"require'completion'.on_attach(client)
+"end
+"nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
+"vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  "vim.lsp.diagnostic.on_publish_diagnostics, {
+    "virtual_text = true,
+    "signs = true,
+    "update_in_insert = true,
+  "}
+")
+"EOF
+"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"imap <Tab> <Plug>(completion_smart_tab)
+"imap <S-Tab> <Plug>(completion_smart_s_tab)
+"" Code navigation shortcuts
+"nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+"nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+"nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+"nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+"nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+"nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+"nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+"nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+"nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+"nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+"autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+"nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+"nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+"autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {} }
 
 "---- Markdown
 let g:markdown_enable_spell_checking = 0
@@ -29,20 +69,20 @@ let g:airline_theme='zenburn'
 " call formatter
 command! -nargs=0 Format :call CocAction('format')
 nmap <M-S-f> :Format<CR>
-" navigates completion menu with tab and shift-tab
+ "navigates completion menu with tab and shift-tab
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~ '\s'
 endfunction
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<Tab>" : kite#completion#autocomplete()
 inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : <SID>check_back_space() ? "\<S-Tab>" : kite#completion#autocomplete()
-"inoremap <silent><expr> <C-Space> coc#refresh()
+inoremap <silent><expr> <C-Space> coc#refresh()
 if exists('*complete_info')
 	inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
 	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-" get help for word under cursor or relevant doc
+ "get help for word under cursor or relevant doc
 nnoremap <silent> K :call <SID>show_doc()<CR>
 function! s:show_doc()
 	if (index(['vim','help'], &filetype) >= 0)
@@ -51,9 +91,9 @@ function! s:show_doc()
 		call CocAction('doHover')
 	endif
 endfunction
-" Highlight the symbol and its references when holding the cursor.
+ "Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-" Symbol renaming.
+ "Symbol renaming.
 nmap <F2> <Plug>(coc-rename)
 
 "---- FZF
@@ -75,7 +115,7 @@ let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_WindowLayout = 2
 
 "----- NERDTree
-nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
+"nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
 " auto opens nerdtree at start
 "augroup nerdtree_open
 "	autocmd!
@@ -157,6 +197,8 @@ augroup END
 nmap <C-n> :tabe<CR>
 
 syntax on
+filetype plugin indent on
+
 "set t_Co=256
 set t_Co=termguicolors
 if (has("termguicolors"))
@@ -209,6 +251,7 @@ nnoremap <silent> gh i//----------[  ]<left><left>
 
 set ignorecase
 set smartcase
+set updatetime=300
 
 " popup list height
 set pumheight=10
@@ -217,9 +260,6 @@ set pumheight=10
 "nmap <silent> ,/ :nohlsearch<CR>
 nmap <silent> ,/ :let @/ = ""<CR>
 nmap <silent> <space>/ ,/
-
-" shorten updatetime for things like CursorHold
-set updatetime=300
 
 " keeps n lines above or below the cursor at top or bottom
 set scrolloff=20

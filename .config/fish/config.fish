@@ -24,8 +24,25 @@ alias die="poweroff"
 # git dotfiles
 alias doot="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
+#//----------[ FZF ]
+begin
+	set --local FZF_PATH /usr/share/fish/vendor_functions.d/fzf_key_bindings.fish
+	if test -e $FZF_PATH
+		set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+		fzf_key_bindings
+	end
+end
+
+#//----------[ GETTING JIGGY WITH OUR TERMINALS ]
+function prompt --on-event fish_prompt
+	echo $PWD > /tmp/whereami
+end
+function pwd_i3-sensible-terminal
+	i3-sensible-terminal --working-directory (cat /tmp/whereami) &
+end
+
 #//----------[ PATH ]
-set -gx PATH ~/.cargo/bin $PATH
+set -x PATH ~/.cargo/bin ~/.local/bin $PATH
 
 #//----------[ STARSHIP ]
 starship init fish | source
