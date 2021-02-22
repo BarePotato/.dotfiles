@@ -33,6 +33,9 @@ begin
 	end
 end
 
+#//----------[ AUTOJUMP-RS ]
+source /usr/share/autojump/autojump.fish
+
 #//----------[ GETTING JIGGY WITH OUR TERMINALS ]
 function prompt --on-event fish_prompt
 	echo $PWD > ~/.local/tmp/whereami
