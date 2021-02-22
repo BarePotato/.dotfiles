@@ -13,8 +13,8 @@ end
 # list aliases for Exa
 alias l="exa -Fx --group-directories-first"
 alias lh="exa -Fax --group-directories-first"
-alias ll="exa -lF --group-directories-first"
-alias la="exa -lFa --group-directories-first"
+alias ll="exa -lF --no-user --group-directories-first"
+alias la="exa -lFa --no-user --group-directories-first"
 # exit
 alias x="exit"
 # clear screen
@@ -35,10 +35,10 @@ end
 
 #//----------[ GETTING JIGGY WITH OUR TERMINALS ]
 function prompt --on-event fish_prompt
-	echo $PWD > /tmp/whereami
+	echo $PWD > ~/.local/tmp/whereami
 end
 function pwd_i3-sensible-terminal
-	i3-sensible-terminal --working-directory (cat /tmp/whereami) &
+	i3-sensible-terminal --working-directory (cat ~/.local/tmp/whereami) &
 end
 
 #//----------[ PATH ]

@@ -63,7 +63,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_theme='zenburn'
+"let g:airline_theme='zenburn'
+let g:airline_theme='bubblegum'
 
 "---- CoC
 " call formatter
@@ -95,6 +96,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
  "Symbol renaming.
 nmap <F2> <Plug>(coc-rename)
+nmap <silent> <F12> <Plug>(coc-definition)
 
 "---- FZF
 nmap <C-p> :Files<CR>
@@ -205,7 +207,6 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 "set t_ut=
-colo simple-dark
 
 " protect from thingies
 set nomodeline
@@ -276,11 +277,12 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFE
 set undodir=$HOME/.config/nvim/undo/
 set undofile
 
+set noshowmode
+colo simple-dark
+
 " CoC Highlights
 hi CocWarningSign      ctermfg=202
 hi CocWarningHighlight ctermfg=202  cterm=underline
 hi CocErrorHighlight   ctermfg=Red  cterm=underline
 hi CocErrorSign 	   ctermfg=Red
-" Syntax Highlights
-hi Comment 			   ctermfg=65   guifg=#5f875f
-hi Normal  			   ctermfg=251  ctermbg=232  guibg=#080808  guifg=#c6c6c6
+hi CocListBlackBlack   guifg=#262626 guibg=#121212

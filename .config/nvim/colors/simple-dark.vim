@@ -1,24 +1,3 @@
-" Summary:
-" This is a dark 256-color scheme for vim with mild contrast and low 
-" distraction.
-"
-" Description:
-" This is a dark 256-color scheme with mild contrast and not so many colors.
-" It is good for prolonged coding. This scheme is inspired by Lucius
-" (vimscript #2536), and some colors here are directly copied.
-"
-" Screenshots:
-" Java: http://imgur.com/KE7aL.png
-" C: http://imgur.com/K5G5V.png
-" Javascript with nerdtree: http://imgur.com/lSXx2.png
-" Ruby with tagbar: http://imgur.com/NzPwu.png
-"
-" Installation:
-" Copy the file to your vim colors directory and then do :color simple-dark.
-"
-" Author: Zefei Xuan <zefei.xuan@gmail.com>
-"
-
 if !(&t_Co == 256 || has('gui_running'))
   finish
 endif
@@ -32,8 +11,8 @@ let colors_name="simple-dark"
 set background=dark
 
 " General Colors
-hi Normal       guifg=#d7d7d7   guibg=#262626   ctermfg=251    ctermbg=235       gui=none      cterm=none
-hi Comment      guifg=#8a8a8a   guibg=NONE      ctermfg=245    ctermbg=NONE      gui=none      cterm=none
+hi Normal       guifg=#c6c6c6   guibg=#080808   ctermfg=251    ctermbg=232       gui=none      cterm=none
+hi Comment      guifg=#5f875f   guibg=NONE      ctermfg=65     ctermbg=NONE      gui=none      cterm=none
 hi Constant     guifg=#d7d7af   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
 hi Identifier   guifg=#afd7d7   guibg=NONE      ctermfg=152    ctermbg=NONE      gui=none      cterm=none
 hi Statement    guifg=#87afd7   guibg=NONE      ctermfg=110    ctermbg=NONE      gui=none      cterm=none
@@ -53,41 +32,34 @@ hi Title        guifg=#d7d7af   guibg=NONE      ctermfg=187    ctermbg=NONE     
 " Text Selection
 hi Cursor       guifg=bg        guibg=fg        ctermfg=bg     ctermbg=fg        gui=none      cterm=none
 hi CursorIM     guifg=bg        guibg=fg        ctermfg=bg     ctermbg=fg        gui=none      cterm=none
-hi CursorColumn guifg=NONE      guibg=#555555   ctermfg=NONE   ctermbg=238       gui=none      cterm=none
-hi CursorLine   guifg=NONE      guibg=#555555   ctermfg=NONE   ctermbg=238       gui=none      cterm=none
+hi CursorColumn guifg=NONE      guibg=#121212   ctermfg=NONE   ctermbg=233       gui=none      cterm=none
+hi CursorLine   guifg=NONE      guibg=#121212   ctermfg=NONE   ctermbg=233       gui=none      cterm=none
 hi Visual       guifg=NONE      guibg=#005f87   ctermfg=NONE   ctermbg=24        gui=none      cterm=none
 hi VisualNOS    guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
-hi IncSearch    guifg=bg        guibg=#87d7ff   ctermfg=bg     ctermbg=123       gui=none      cterm=none
-hi Search       guifg=bg        guibg=#ffd787   ctermfg=bg     ctermbg=221       gui=none      cterm=none
+hi IncSearch    guifg=bg        guibg=#87ffff   ctermfg=bg     ctermbg=123       gui=none      cterm=none
+hi Search       guifg=bg        guibg=#ffd75f   ctermfg=bg     ctermbg=221       gui=none      cterm=none
 
 " UI
-hi LineNr       guifg=#555555   guibg=#000000   ctermfg=238    ctermbg=233       gui=none      cterm=none
-hi CursorLineNr guifg=#afafaf   guibg=#444444   ctermfg=245    ctermbg=bg        gui=none      cterm=none
-"hi Pmenu        guifg=#121212   guibg=#b2b2b2   ctermfg=233    ctermbg=249       gui=none      cterm=none
+hi LineNr       guifg=#444444   guibg=#121212   ctermfg=238    ctermbg=233       gui=none      cterm=none
+hi CursorLineNr guifg=#626262   guibg=bg 	    ctermfg=241    ctermbg=bg        gui=none      cterm=none
 hi Pmenu        guifg=#b2b2b2   guibg=#121212   ctermfg=249    ctermbg=233       gui=none      cterm=none
 hi PmenuSel     guifg=fg        guibg=#585858   ctermfg=fg     ctermbg=240       gui=none      cterm=none
 hi PMenuSbar    guifg=#121212   guibg=#c6c6c6   ctermfg=233    ctermbg=251       gui=none      cterm=none
 hi PMenuThumb   guifg=fg        guibg=#767676   ctermfg=fg     ctermbg=243       gui=none      cterm=none
-hi StatusLine   guifg=#121212   guibg=#b2b2b2   ctermfg=233    ctermbg=249       gui=none      cterm=none
+hi StatusLine   guifg=#b2b2b2   guibg=#121212   ctermfg=243    ctermbg=233       gui=none      cterm=none
 hi StatusLineNC guifg=#121212   guibg=#767676   ctermfg=233    ctermbg=243       gui=none      cterm=none
-hi TabLine      guifg=#121212   guibg=#b2b2b2   ctermfg=233    ctermbg=249       gui=none      cterm=none
-hi TabLineFill  guifg=#121212   guibg=#b2b2b2   ctermfg=233    ctermbg=249       gui=none      cterm=none
-hi TabLineSel   guifg=fg        guibg=#585858   ctermfg=fg     ctermbg=240       gui=none      cterm=none
+hi TabLine      guifg=fg   		guibg=bg 	    ctermfg=fg     ctermbg=bg        gui=none      cterm=none
+hi TabLineFill  guifg=fg   		guibg=bg        ctermfg=fg     ctermbg=bg        gui=none      cterm=none
+hi TabLineSel   guifg=bg        guibg=fg   		ctermfg=bg     ctermbg=fg        gui=none      cterm=none
 hi VertSplit    guifg=#8a8a8a   guibg=#b2b2b2   ctermfg=245    ctermbg=249       gui=none      cterm=none
-hi Folded       guifg=fg        guibg=#585858   ctermfg=fg     ctermbg=240       gui=none      cterm=none
-hi FoldColumn   guifg=fg        guibg=#585858   ctermfg=fg     ctermbg=240       gui=none      cterm=none
-
-" Spelling
-hi SpellBad     guisp=#ee0000                   ctermfg=fg     ctermbg=160       gui=undercurl cterm=undercurl
-hi SpellCap     guisp=#eeee00                   ctermfg=bg     ctermbg=226       gui=undercurl cterm=undercurl
-hi SpellRare    guisp=#ffa500                   ctermfg=bg     ctermbg=214       gui=undercurl cterm=undercurl
-hi SpellLocal   guisp=#ffa500                   ctermfg=bg     ctermbg=214       gui=undercurl cterm=undercurl
+hi Folded       guifg=bg        guibg=#8a8a8a   ctermfg=bg     ctermbg=245       gui=none      cterm=none
+hi FoldColumn   guifg=bg        guibg=#8a8a8a   ctermfg=bg     ctermbg=245       gui=none      cterm=none
 
 " Diff
-hi DiffAdd      guifg=fg        guibg=#405040   ctermfg=fg     ctermbg=22        gui=none      cterm=none
-hi DiffChange   guifg=fg        guibg=#605040   ctermfg=fg     ctermbg=58        gui=none      cterm=none
-hi DiffDelete   guifg=fg        guibg=#504040   ctermfg=fg     ctermbg=52        gui=none      cterm=none
-hi DiffText     guifg=#e0b050   guibg=#605040   ctermfg=220    ctermbg=58        gui=none      cterm=none
+hi DiffAdd      guifg=fg        guibg=#005f00   ctermfg=fg     ctermbg=22        gui=none      cterm=none
+hi DiffChange   guifg=fg        guibg=#5f5f00   ctermfg=fg     ctermbg=58        gui=none      cterm=none
+hi DiffDelete   guifg=fg        guibg=#5f0000   ctermfg=fg     ctermbg=52        gui=none      cterm=none
+hi DiffText     guifg=#ffd700   guibg=#5f5f00   ctermfg=220    ctermbg=58        gui=none      cterm=none
 
 " Misc
 hi Directory    guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=none      cterm=none
@@ -99,5 +71,4 @@ hi Question     guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE     
 hi WarningMsg   guifg=#d7af87   guibg=NONE      ctermfg=180    ctermbg=NONE      gui=none      cterm=none
 hi WildMenu     guifg=NONE      guibg=#005f87   ctermfg=NONE   ctermbg=24        gui=none      cterm=none
 hi ColorColumn  guifg=NONE      guibg=#303030   ctermfg=NONE   ctermbg=236       gui=none      cterm=none
-hi Ignore       guifg=bg                        ctermfg=bg
-
+hi Ignore       guifg=#262626                   ctermfg=235

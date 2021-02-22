@@ -148,7 +148,7 @@ bindsym $mod+$alt+F4 exec poweroff
 exec unclutter
 
 #//----------[ Stuff ]
-exec --no-startup-id feh --bg-fill ~/Desktop/qCZJcGH2.jpg
+exec --no-startup-id feh --bg-fill ~/Desktop/42353.jpg
 #exec --no-startup-id xsetroot -solid "#080808"
 exec_always --no-startup-id numlockx on
 
