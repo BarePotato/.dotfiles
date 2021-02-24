@@ -23,6 +23,12 @@ alias cls="clear"
 alias die="poweroff"
 # git dotfiles
 alias doot="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+# twitchy
+function twitchy
+	cd ~/code/rust/twitchy/
+	cargo r
+end
+alias todo="nvim ~/code/rust/twitchy/twitchy.todo"
 
 #//----------[ FZF ]
 begin
