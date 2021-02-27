@@ -3,6 +3,7 @@
 set $mod Mod1
 #set $mod Mod4
 #set $alt Mod1
+set $ctrl = Control
 
 font pango:DejaVu Sans Mono, FontAwesome 8
 
@@ -10,8 +11,10 @@ font pango:DejaVu Sans Mono, FontAwesome 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec i3-sensible-terminal &
+#bindsym $mod+Shift+Return exec i3-sensible-terminal &
 bindsym $mod+Return exec fish -c pwd_i3-sensible-terminal
+
+bindsym $mod+Shift+Return exec i3 open
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -133,27 +136,26 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
-#bar {
-	#font pango:DejaVu Sans Mono, FontAwesome 9
-	#status_command i3status
-	#separator_symbol ║
-	#colors {
-		#background #080808
-	#}
-#}
+bar {
+	font pango:DejaVu Sans Mono, FontAwesome 9
+	status_command i3status
+	separator_symbol ║
+	colors {
+		background #080808
+	}
+}
 
 #//----------[ Flameshot ]
 bindsym Print exec flameshot gui
 
-#//----------[ Poweroff ]
-bindsym $mod+$alt+F4 exec poweroff
-
 #//----------[ Unclutter ]
 exec unclutter
 
-#//----------[ Stuff ]
+#//----------[ X Background ]
 exec --no-startup-id feh --bg-fill ~/Desktop/42353.jpg
 #exec --no-startup-id xsetroot -solid "#080808"
+
+#//----------[ Numlock ]
 exec_always --no-startup-id numlockx on
 
 #//----------[ Terminal ]

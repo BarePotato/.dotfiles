@@ -7,7 +7,7 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let colors_name="simple-dark"
+let colors_name="simple-bare"
 set background=dark
 
 " General Colors
@@ -22,8 +22,8 @@ hi Special      guifg=#d7d7af   guibg=NONE      ctermfg=187    ctermbg=NONE     
 
 " Text Markup
 hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
-hi Error        guifg=#ff8787   guibg=NONE      ctermfg=210    ctermbg=NONE      gui=none      cterm=none
-hi Todo         guifg=#d7d7af   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
+hi Error        guifg=#ff8787   guibg=NONE      ctermfg=210    ctermbg=NONE      gui=underline cterm=underline
+hi Todo         guifg=#d7af00   guibg=NONE      ctermfg=178    ctermbg=NONE      gui=none      cterm=none
 hi MatchParen   guifg=fg        guibg=#5f8787   ctermfg=fg     ctermbg=66        gui=none      cterm=none
 hi NonText      guifg=#585858   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 hi SpecialKey   guifg=#585858   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
@@ -53,7 +53,7 @@ hi TabLineFill  guifg=fg   		guibg=bg        ctermfg=fg     ctermbg=bg        gu
 hi TabLineSel   guifg=bg        guibg=fg   		ctermfg=bg     ctermbg=fg        gui=none      cterm=none
 hi VertSplit    guifg=#8a8a8a   guibg=#b2b2b2   ctermfg=245    ctermbg=249       gui=none      cterm=none
 hi Folded       guifg=bg        guibg=#8a8a8a   ctermfg=bg     ctermbg=245       gui=none      cterm=none
-hi FoldColumn   guifg=bg        guibg=#8a8a8a   ctermfg=bg     ctermbg=245       gui=none      cterm=none
+hi FoldColumn   guifg=#626262   guibg=#121212   ctermfg=241    ctermbg=233       gui=none      cterm=none
 
 " Diff
 hi DiffAdd      guifg=fg        guibg=#005f00   ctermfg=fg     ctermbg=22        gui=none      cterm=none

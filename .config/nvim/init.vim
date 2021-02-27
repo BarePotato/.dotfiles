@@ -1,10 +1,5 @@
 call plug#begin('$HOME/.vimfiles/pluggs')
-"Plug 'neovim/nvim-lspconfig'
-"Plug 'nvim-lua/lsp_extensions.nvim'
-"Plug 'nvim-lua/completion-nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'scrooloose/nerdtree'
-"Plug 'pprovost/vim-ps1'
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -17,43 +12,6 @@ Plug 'aliva/vim-fish'
 Plug 'gabrielelana/vim-markdown'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
-
-"---- LSP
-"set completeopt=menuone,noinsert,noselect
-"set shortmess+=c
-"lua <<EOF
-"local nvim_lsp = require'lspconfig'
-"local on_attach = function(client)
-	"require'completion'.on_attach(client)
-"end
-"nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
-"vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  "vim.lsp.diagnostic.on_publish_diagnostics, {
-    "virtual_text = true,
-    "signs = true,
-    "update_in_insert = true,
-  "}
-")
-"EOF
-"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"imap <Tab> <Plug>(completion_smart_tab)
-"imap <S-Tab> <Plug>(completion_smart_s_tab)
-"" Code navigation shortcuts
-"nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-"nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-"nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-"nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-"nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-"nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-"nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-"nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-"nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-"nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
-"autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-"nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-"nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-"autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {} }
 
 "---- Markdown
 let g:markdown_enable_spell_checking = 0
@@ -69,7 +27,7 @@ let g:airline_theme='bare'
 " call formatter
 command! -nargs=0 Format :call CocAction('format')
 nmap <M-S-f> :Format<CR>
- "navigates completion menu with tab and shift-tab
+"navigates completion menu with tab and shift-tab
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~ '\s'
@@ -82,7 +40,7 @@ if exists('*complete_info')
 else
 	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
- "get help for word under cursor or relevant doc
+"get help for word under cursor or relevant doc
 nnoremap <silent> K :call <SID>show_doc()<CR>
 function! s:show_doc()
 	if (index(['vim','help'], &filetype) >= 0)
@@ -91,9 +49,9 @@ function! s:show_doc()
 		call CocAction('doHover')
 	endif
 endfunction
- "Highlight the symbol and its references when holding the cursor.
+"Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
- "Symbol renaming.
+"Symbol renaming.
 nmap <F2> <Plug>(coc-rename)
 nmap <silent> <F12> <Plug>(coc-definition)
 
@@ -127,9 +85,10 @@ let g:undotree_WindowLayout = 2
 set viewdir=$HOME/.config/nvim/fold/
 augroup FoldKeeper
 	autocmd!
-	autocmd BufWinLeave ?* silent! mkview!
-	autocmd BufWinEnter ?* silent! loadview
+	autocmd BufWinLeave * silent! mkview! 1
+	autocmd BufWinEnter * silent! loadview 1
 augroup END
+set foldcolumn=1
 
 "----- NERDCommenter
 "let g:NERDCreateDefaultMappings = 0
@@ -241,6 +200,7 @@ augroup relnumtoggle
 augroup END
 " highlight current line
 set cursorline
+set numberwidth=2
 
 " match brackets () [] {} <>
 set showmatch
@@ -280,8 +240,8 @@ set noshowmode
 colo simple-bare
 
 " CoC Highlights
-hi CocWarningSign      ctermfg=202
-hi CocWarningHighlight ctermfg=202  cterm=underline
-hi CocErrorHighlight   ctermfg=Red  cterm=underline
-hi CocErrorSign 	   ctermfg=Red
+hi CocWarningSign      guifg=#ff5f00 ctermfg=202
+hi CocWarningHighlight guifg=#ff5f00 ctermfg=202  cterm=underline gui=underline
+hi CocErrorHighlight   guifg=#FF0000 ctermfg=Red  cterm=underline gui=underline
+hi CocErrorSign 	   guifg=#ff0000 ctermfg=Red
 hi CocListBlackBlack   guifg=#262626 guibg=#121212
