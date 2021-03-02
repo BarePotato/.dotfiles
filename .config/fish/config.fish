@@ -25,11 +25,10 @@ alias die="poweroff"
 alias doot="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 # twitchy
 function twitchy
-	cd ~/code/rust/twitchy/
-	git switch master
-	cargo r
+	cd ~/code/bin/twitchy
+	./twitchy
 end
-alias todo="nvim ~/code/rust/twitchy/twitchy.todo"
+alias todo="nvim ~/code/bin/twitchy/twitchy.todo"
 
 #//----------[ FZF ]
 begin

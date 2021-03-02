@@ -54,6 +54,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 "Symbol renaming.
 nmap <F2> <Plug>(coc-rename)
 nmap <silent> <F12> <Plug>(coc-definition)
+nmap ]e <Plug>(coc-diagnostic-next-error)
+nmap [e <Plug>(coc-diagnostic-prev-error)
 
 "---- FZF
 nmap <C-p> :Files<CR>
