@@ -54,6 +54,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 "Symbol renaming.
 nmap <F2> <Plug>(coc-rename)
 nmap <silent> <F12> <Plug>(coc-definition)
+nmap <silent> <C-F12> <Plug>(coc-references)
+nmap <silent> <S-F12> <Plug>(coc-implementation)
 nmap ]e <Plug>(coc-diagnostic-next-error)
 nmap [e <Plug>(coc-diagnostic-prev-error)
 
@@ -66,7 +68,7 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 "" THIS IS NOT THE RIGHT ANSWER
 "" BUT it is probably what we want, needs alias in place of env var
 "command! -bang -nargs=*  All call fzf#run(fzf#wrap({'source': 'rg --files --hidden --no-ignore-vcs --glob \"!{node_modules/*,.git/*}"', 'down': '40%', 'options': '--expect=ctrl-t,ctrl-x,ctrl-v --multi --reverse' }))
-nmap <C-f> :Find
+nmap <C-f> :Find<Space>
 
 "---- Undotree
 nnoremap <F5> :UndotreeToggle<cr>
@@ -91,6 +93,15 @@ augroup FoldKeeper
 	autocmd BufWinEnter * silent! loadview 1
 augroup END
 set foldcolumn=1
+set viewoptions-=curdir
+
+"----- Find Replace
+command! -nargs=+ FindR call FindReplace(<f-args>)
+function! FindReplace(...)
+	if a:0 == 2
+		exec printf('%%substitute/%s/%s/gc', a:1, a:2)
+	endif
+endfunction
 
 "----- NERDCommenter
 "let g:NERDCreateDefaultMappings = 0
@@ -129,6 +140,13 @@ function! s:CargoBuild()
 		ene | call termopen('cargo build') | startinsert
 	endif
 endfunction
+" cargo check if rust
+command! -nargs=0 Check :call <SID>CargoCheck()
+function! s:CargoCheck()
+	if &filetype == 'rust'
+		ene | call termopen('cargo check') | startinsert
+	endif
+endfunction
 " cargo docs if rust
 command! -nargs=0 Doc :call <SID>CargoDoc()
 function! s:CargoDoc()
@@ -142,13 +160,9 @@ endfunction
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " edit coc-settings.json
-nmap <silent> <leader>cv :e $HOME/vimfiles/coc-settings.json<CR>
+nmap <silent> <leader>cv :e $HOME/.config/nvim/coc-settings.json<CR>
 " edit alacritty.yml
 nmap <silent> <leader>av :e $HOME/.config/alacritty/alacritty.yml<CR>
-" edit powershell.ps1
-nmap <silent> <leader>pv :e $HOME/Documents/PowerShell/profile.ps1<CR>
-" edit windows terminal
-nmap <silent> <leader>wv :e $HOME/AppData/Local/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json<CR>
 
 " json to jsonc because errors suck
 augroup json_comments
