@@ -29,6 +29,9 @@ function twitchy
 	./twitchy
 end
 alias todo="nvim ~/code/bin/twitchy/twitchy.todo"
+# nvim
+alias nmain="nvim src/main.rs"
+alias nall="nvim src/*"
 
 #//----------[ FZF ]
 begin
