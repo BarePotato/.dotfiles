@@ -149,10 +149,10 @@ bar {
 bindsym Print exec flameshot gui
 
 #//----------[ Unclutter ]
-exec unclutter
+exec unclutter --timeout 1 --jitter 100 --ignore-scrolling
 
 #//----------[ X Background ]
-exec --no-startup-id feh --bg-fill ~/Desktop/42353.jpg
+exec --no-startup-id feh --bg-fill ~/Downloads/42353.jpg
 #exec --no-startup-id xsetroot -solid "#080808"
 
 #//----------[ Numlock ]
