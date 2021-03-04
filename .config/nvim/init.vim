@@ -72,10 +72,11 @@ nmap <C-f> :Find<Space>
 
 "---- Undotree
 nnoremap <F5> :UndotreeToggle<cr>
-"let g:undotree_DiffCommand='diff'
-"let g:undotree_HighlightChangedText = 0
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_WindowLayout = 2
+let g:undotree_DiffpanelHeight = 15
+let g:undotree_RelativeTimestamp = 1
+let g:undotree_ShortIndicators = 1
 
 "----- NERDTree
 "nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
