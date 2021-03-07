@@ -7,10 +7,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'cespare/vim-toml'
 Plug 'aliva/vim-fish'
-Plug 'gabrielelana/vim-markdown'
+Plug 'vimwiki/vimwiki'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ziglang/zig.vim'
 call plug#end()
 
 "---- Markdown
@@ -104,9 +107,6 @@ function! FindReplace(...)
 	endif
 endfunction
 
-"----- NERDCommenter
-"let g:NERDCreateDefaultMappings = 0
-map <silent> gc <Plug>NERDCommenterToggle
 
 "---- Vim\Neovim
 "this breaks on windows so disable
@@ -234,9 +234,7 @@ set updatetime=300
 set pumheight=10
 
 " clear search highlight
-"nmap <silent> ,/ :nohlsearch<CR>
-nmap <silent> ,/ :let @/ = ""<CR>
-nmap <silent> <space>/ ,/
+nmap <silent> <leader>/ :let @/ = ""<CR>
 
 " keeps n lines above or below the cursor at top or bottom
 set scrolloff=20
