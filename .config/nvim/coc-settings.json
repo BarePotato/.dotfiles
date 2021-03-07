@@ -1,4 +1,10 @@
 {
+	"languageserver": {
+		"zls" : {
+			"command": "zls",
+			"filetypes": ["zig"]
+		}
+	},
 	/*"suggest.noselect": false,*/
 	"diagnostic.errorSign": "",
 	"diagnostic.warningSign": "",
