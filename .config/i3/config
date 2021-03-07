@@ -152,7 +152,8 @@ bindsym Print exec flameshot gui
 exec unclutter --timeout 1 --jitter 100 --ignore-scrolling
 
 #//----------[ X Background ]
-exec --no-startup-id feh --bg-fill ~/Downloads/42353.jpg
+#exec --no-startup-id feh --bg-fill ~/Downloads/wallpapers/42353.jpg
+exec --no-startup-id feh --randomize --bg-scale ~/Downloads/wallpapers/
 #exec --no-startup-id xsetroot -solid "#080808"
 
 #//----------[ Numlock ]
