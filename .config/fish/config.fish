@@ -54,7 +54,7 @@ function pwd_i3-sensible-terminal
 end
 
 #//----------[ PATH ]
-set -x PATH ~/.cargo/bin ~/.local/bin $PATH
+set -x PATH ~/.cargo/bin ~/.local/bin $PATH ~/.zls/x86_64-linux
 
 #//----------[ STARSHIP ]
 starship init fish | source
