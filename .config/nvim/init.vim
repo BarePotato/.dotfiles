@@ -108,6 +108,8 @@ function! FindReplace(...)
 endfunction
 
 
+command! Trail :%s/\s\+$//e
+
 "---- Vim\Neovim
 "this breaks on windows so disable
 "map <C-z> <Nop>
