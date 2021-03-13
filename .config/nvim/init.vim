@@ -1,5 +1,4 @@
 call plug#begin('$HOME/.vimfiles/pluggs')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -25,42 +24,6 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_theme='bare'
-
-"---- CoC
-" call formatter
-command! -nargs=0 Format :call CocAction('format')
-nmap <M-S-f> :Format<CR>
-"navigates completion menu with tab and shift-tab
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~ '\s'
-endfunction
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<Tab>" : kite#completion#autocomplete()
-inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : <SID>check_back_space() ? "\<S-Tab>" : kite#completion#autocomplete()
-inoremap <silent><expr> <C-Space> coc#refresh()
-if exists('*complete_info')
-	inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-"get help for word under cursor or relevant doc
-nnoremap <silent> K :call <SID>show_doc()<CR>
-function! s:show_doc()
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h ' .expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
-endfunction
-"Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-"Symbol renaming.
-nmap <F2> <Plug>(coc-rename)
-nmap <silent> <F12> <Plug>(coc-definition)
-nmap <silent> <C-F12> <Plug>(coc-references)
-nmap <silent> <S-F12> <Plug>(coc-implementation)
-nmap ]e <Plug>(coc-diagnostic-next-error)
-nmap [e <Plug>(coc-diagnostic-prev-error)
 
 "---- FZF
 nmap <C-p> :Files<CR>

@@ -33,14 +33,14 @@ cpu_usage {
 
 cpu_temperature 0 {
 		format = "%degreesc🌡️"
-		path = "/sys/class/hwmon/hwmon0/temp1_input"
+		path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input"
 		separator = false
 		separator_block_width = 0
 }
 
 cpu_temperature 1 {
 		format = "%degreesc"
-		path = "/sys/class/hwmon/hwmon1/temp1_input"
+		path = "/sys/devices/virtual/thermal/thermal_zone1/temp"
 }
 
 load {

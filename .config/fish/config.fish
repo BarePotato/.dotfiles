@@ -8,7 +8,6 @@ end
 function fish_greeting
 	printf  '\e[90m%s\n%s\n%s\n%s\n' "                 |               !!!           |\"|      " "     ,,,         |.===.       \  _ _  /       _|_|_     " "    (o o)        {}o o{}     -  (OXO)  -      (o o)     " "ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-"
 end
-
 #//----------[ Alias ]
 # list aliases for Exa
 alias l="exa -Fx --group-directories-first"
@@ -32,6 +31,12 @@ alias todo="nvim ~/code/bin/twitchy/twitchy.todo"
 # nvim
 alias nmain="nvim src/main.rs"
 alias nall="nvim src/*"
+# bat
+alias cat bat
+# procs
+alias ps procs
+# dust
+alias du dust
 
 #//----------[ FZF ]
 begin
