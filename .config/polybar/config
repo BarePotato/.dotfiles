@@ -34,7 +34,7 @@ cursor-scroll = ns-resize
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-index-sort = tre
+index-sort = true
 wrapping-scroll = false
 label-focused = %index%
 label-focused-foreground = ${colors.blue}
