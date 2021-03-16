@@ -218,6 +218,15 @@ function! s:CargoDoc()
 	endif
 endfunction
 
+" window/split management
+nmap <leader>wh <C-w><C-h>
+nmap <leader>wj <C-w><C-j>
+nmap <leader>wk <C-w><C-k>
+nmap <leader>wl <C-w><C-l>
+nmap <leader>ws <C-w><C-s>
+nmap <leader>wv <C-w><C-v>
+nmap <leader>wq <C-w><C-q>
+
 " Configurations
 " edit and reload vim rc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
