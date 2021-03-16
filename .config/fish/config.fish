@@ -8,6 +8,7 @@ end
 function fish_greeting
 	printf  '\e[90m%s\n%s\n%s\n%s\n' "                 |               !!!           |\"|      " "     ,,,         |.===.       \  _ _  /       _|_|_     " "    (o o)        {}o o{}     -  (OXO)  -      (o o)     " "ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-"
 end
+
 #//----------[ Alias ]
 # list aliases for Exa
 alias l="exa -Fx --group-directories-first"
@@ -57,6 +58,9 @@ end
 function pwd_i3-sensible-terminal
 	i3-sensible-terminal --working-directory (cat ~/.local/tmp/whereami) &
 end
+
+#//----------[ VARS ]
+set -x XDG_CONFIG_HOME ~/.config
 
 #//----------[ PATH ]
 set -x PATH ~/.cargo/bin ~/.local/bin $PATH ~/.zls/x86_64-linux
