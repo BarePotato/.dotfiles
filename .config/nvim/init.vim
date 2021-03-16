@@ -222,3 +222,10 @@ set undofile
 
 set noshowmode
 colo simple-bare
+
+" CoC Highlights
+hi CocWarningSign      guifg=#ff5f00 ctermfg=202
+hi CocWarningHighlight guifg=#ff5f00 ctermfg=202  cterm=underline gui=underline
+hi CocErrorHighlight   guifg=#FF0000 ctermfg=Red  cterm=underline gui=underline
+hi CocErrorSign 	   guifg=#ff0000 ctermfg=Red
+hi CocListBlackBlack   guifg=#262626 guibg=#121212
