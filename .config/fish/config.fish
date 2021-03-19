@@ -30,8 +30,9 @@ function twitchy
 end
 alias todo="nvim ~/code/bin/twitchy/twitchy.todo"
 # nvim
-alias nmain="nvim src/main.rs"
-alias nall="nvim src/*"
+alias nm="nvim src/main.rs"
+alias nr="nvim src/*"
+alias n="nvim"
 # bat
 alias cat bat
 # procs
@@ -63,7 +64,7 @@ end
 set -x XDG_CONFIG_HOME ~/.config
 
 #//----------[ PATH ]
-set -x PATH ~/.cargo/bin ~/.local/bin $PATH ~/.zls/x86_64-linux
+set -x PATH ~/.cargo/bin ~/.local/bin $PATH ~/.zls/x86_64-linux ~/code/bin/
 
 #//----------[ STARSHIP ]
 starship init fish | source

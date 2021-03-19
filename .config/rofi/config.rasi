@@ -1,6 +1,6 @@
 configuration {
 	theme: "/usr/share/rofi/themes/android_notification.rasi";
-	modi: "run,window,file-browser";
+	modi: "run,window,file-browser,calc";
 	show-icons: true;
 	combi-hide-mode-prefix: true;
 /*	window-format: "{w}    {c}   {t}";*/

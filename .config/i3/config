@@ -177,9 +177,7 @@ bindsym Print exec flameshot gui
 exec unclutter --timeout 2 --jitter 50 --ignore-scrolling
 
 #//----------[ X Background ]
-#exec --no-startup-id feh --bg-fill ~/Downloads/wallpapers/42353.jpg
 exec --no-startup-id feh --randomize --bg-scale ~/Downloads/wallpapers/
-#exec --no-startup-id xsetroot -solid "#080808"
 
 # //----------[ Sound Things ]
 exec pasystray
@@ -188,6 +186,9 @@ exec cadmus
 #//----------[ Keyboard ]
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id setxkbmap -option altwin:swap_alt_win
+
+# //----------[ Mouse ]
+xinput --set-prop 14 'libinput Accel Profile Enabled' 0, 1
 
 # //----------[ Polybar ]
 exec polybar -r catpeasant

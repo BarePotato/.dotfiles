@@ -206,7 +206,7 @@ set pumheight=10
 nmap <silent> <leader>/ :let @/ = ""<CR>
 
 " keeps n lines above or below the cursor at top or bottom
-set scrolloff=20
+set scrolloff=10
 
 nnoremap ; :
 nnoremap j gj
@@ -222,3 +222,10 @@ set undofile
 
 set noshowmode
 colo simple-bare
+
+" CoC Highlights
+hi CocWarningSign      guifg=#ff5f00 ctermfg=202
+hi CocWarningHighlight guifg=#ff5f00 ctermfg=202  cterm=underline gui=underline
+hi CocErrorHighlight   guifg=#FF0000 ctermfg=Red  cterm=underline gui=underline
+hi CocErrorSign 	   guifg=#ff0000 ctermfg=Red
+hi CocListBlackBlack   guifg=#262626 guibg=#121212

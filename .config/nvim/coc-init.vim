@@ -1,7 +1,15 @@
 "---- CoC
 " call formatter
-command! -nargs=0 Format :call CocAction('format')
-nmap <M-S-f> :Format<CR>
+nmap <leader>ff :call <SID>FormatOrElse()<CR>
+" command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+function! s:FormatOrElse()
+	if &filetype == 'javascript'
+		:CocCommand prettier.formatFile
+	else
+		:call CocAction('format')
+	endif
+endfunction
 "navigates completion menu with tab and shift-tab
 function! s:check_back_space() abort
 	let col = col('.') - 1
@@ -34,4 +42,6 @@ nmap <silent> <C-F12> <Plug>(coc-implementation)
 nmap <silent> <S-F12> <Plug>(coc-refernces)
 nmap ]e <Plug>(coc-diagnostic-next-error)
 nmap [e <Plug>(coc-diagnostic-prev-error)
+nmap ]w <Plug>(coc-diagnostic-next)
+nmap [w <Plug>(coc-diagnostic-prev)
 nmap <leader>ca :CocAction<CR>
