@@ -39,6 +39,8 @@ alias cat bat
 alias ps procs
 # dust
 alias du dust
+# fend
+alias calc fend
 
 #//----------[ FZF ]
 begin
