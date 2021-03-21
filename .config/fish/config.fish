@@ -15,6 +15,7 @@ alias l="exa -Fx --group-directories-first"
 alias lh="exa -Fax --group-directories-first"
 alias ll="exa -lF --no-user --group-directories-first"
 alias la="exa -lFa --no-user --group-directories-first"
+alias las="la --sort date"
 # exit
 alias x="exit"
 # clear screen
@@ -27,6 +28,10 @@ alias doot="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 function twitchy
 	cd ~/code/bin/twitchy
 	./twitchy
+end
+function twitchyf
+	cd ~/code/bin/twitchy
+	./twitchy_front
 end
 alias todo="nvim ~/code/bin/twitchy/twitchy.todo"
 # nvim
@@ -41,6 +46,8 @@ alias ps procs
 alias du dust
 # fend
 alias calc fend
+# wallpaper random
+alias wall "feh --randomize --bg-scale ~/Downloads/wallpapers/"
 
 #//----------[ FZF ]
 begin
@@ -72,9 +79,9 @@ set -x PATH ~/.cargo/bin ~/.local/bin $PATH ~/.zls/x86_64-linux ~/code/bin/
 starship init fish | source
 
 #//----------[ STARTX ]
-#if status is-login
-#if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-#startx -- -keeptty
-#end
-#end
+if status is-login
+	if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+		startx
+	end
+end
 

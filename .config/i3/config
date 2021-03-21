@@ -125,8 +125,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #for_window [class=".*"] border pixel 2
-default_border pixel 2
-gaps inner 2
+default_border pixel 1
+gaps inner 0
 
 bindsym $mod+Shift+p gaps inner all toggle 2
 bindsym $mod+Shift+equal gaps inner all plus 10
@@ -171,11 +171,17 @@ exec i3-msg workspace 1
 # 	tray_output primary
 # }
 
+#//----------[ Discord ]
+exec discord
+
 #//----------[ Flameshot ]
 bindsym Print exec flameshot gui
 
 #//----------[ Unclutter ]
 exec unclutter --timeout 2 --jitter 50 --ignore-scrolling
+
+#//----------[ X Transparency ]
+exec xcompmgr
 
 #//----------[ X Background ]
 exec --no-startup-id feh --randomize --bg-scale ~/Downloads/wallpapers/
@@ -195,5 +201,5 @@ exec xinput --set-prop 14 'libinput Accel Profile Enabled' 0, 1
 exec polybar -r catpeasant
 
 #//----------[ Terminal ]
-exec  i3-sensible-terminal
+exec i3-sensible-terminal
 

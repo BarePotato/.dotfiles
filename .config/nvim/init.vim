@@ -125,6 +125,10 @@ nmap <leader>ws <C-w><C-s>
 nmap <leader>wv <C-w><C-v>
 nmap <leader>wq <C-w><C-q>
 
+" page up/down
+nmap <leader>u <C-u>
+nmap <leader>d <C-d>
+
 " Configurations
 " edit and reload vim rc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>

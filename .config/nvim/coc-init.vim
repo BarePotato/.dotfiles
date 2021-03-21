@@ -5,9 +5,9 @@ nmap <leader>ff :call <SID>FormatOrElse()<CR>
 " command! -nargs=0 Prettier :CocCommand prettier.formatFile
 function! s:FormatOrElse()
 	if &filetype == 'javascript'
-		:CocCommand prettier.formatFile
+		:silent CocCommand prettier.formatFile
 	else
-		:call CocAction('format')
+		:silent call CocAction('format')
 	endif
 endfunction
 "navigates completion menu with tab and shift-tab

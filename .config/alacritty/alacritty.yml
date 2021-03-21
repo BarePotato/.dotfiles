@@ -1,6 +1,8 @@
 env:
   TERM: alacritty
 
+background_opacity: 0.95
+
 font:
   normal:
     family: FiraMono Nerd Font
