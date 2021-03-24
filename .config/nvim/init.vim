@@ -22,6 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Syntax
 " Plug 'vimwiki/vimwiki'
+" Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'aliva/vim-fish'
 Plug 'ziglang/zig.vim'
