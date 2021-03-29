@@ -1,3 +1,6 @@
+" if you ever get weird completion inserts or plugs that dont exist anymore still trying to function
+" CLEAR YOUR MOTHERFLIPPING SHADA  probably in ~/.local/share/nvim/shada/main.shada
+
 " little more convenient than \
 "let mapleader=","
 let mapleader=" "
@@ -22,7 +25,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Syntax
 " Plug 'vimwiki/vimwiki'
-" Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'aliva/vim-fish'
 Plug 'ziglang/zig.vim'
@@ -226,7 +229,11 @@ set undodir=$HOME/.config/nvim/undo/
 set undofile
 
 set noshowmode
-colo simple-bare
+" colo simple-bare
+colo PaperColor
+" PaperColor color mods
+hi Normal guibg=None
+hi Comment guifg=#5f875f  
 
 " CoC Highlights
 hi CocWarningSign      guifg=#ff5f00 ctermfg=202

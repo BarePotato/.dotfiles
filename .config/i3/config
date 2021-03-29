@@ -195,6 +195,8 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id setxkbmap -option altwin:swap_alt_win
 
 # //----------[ Mouse ]
+exec xinput --set-prop 11 'libinput Accel Profile Enabled' 0, 1
+exec xinput --set-prop 13 'libinput Accel Profile Enabled' 0, 1
 exec xinput --set-prop 14 'libinput Accel Profile Enabled' 0, 1
 
 # //----------[ Polybar ]
