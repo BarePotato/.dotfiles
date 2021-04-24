@@ -133,6 +133,9 @@ nmap <leader>wq <C-w><C-q>
 nmap <leader>u <C-u>
 nmap <leader>d <C-d>
 
+" paste from register 0
+nnoremap <leader>p "0p
+
 " Configurations
 " edit and reload vim rc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -229,11 +232,11 @@ set undodir=$HOME/.config/nvim/undo/
 set undofile
 
 set noshowmode
-" colo simple-bare
-colo PaperColor
+colo simple-bare
+" colo PaperColor
 " PaperColor color mods
 hi Normal guibg=None
-hi Comment guifg=#5f875f  
+hi Comment guifg=#5f875f
 
 " CoC Highlights
 hi CocWarningSign      guifg=#ff5f00 ctermfg=202
