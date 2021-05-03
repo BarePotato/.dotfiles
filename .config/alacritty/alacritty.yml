@@ -1,50 +1,50 @@
 env:
-  TERM: alacritty
+    TERM: alacritty
 
 background_opacity: 0.9
 
 font:
-  normal:
-    family: FiraMono Nerd Font
-  size: 11
+    normal:
+        family: FiraMono Nerd Font
+    size: 11
 
 draw_bold_text_with_bright_colors: true
 
 colors:
-  primary:
-    background: '#080808'
-    foreground: '#d8d8d8'
-  cursor:
-    text: '#080808'
-    cursor: '#cef449'
-  normal:
-    black:   '#181818'
-    red:     '#cc0000'
-    green:   '#4e9a06'
-    yellow:  '#cfa000'
-    blue:    '#3465a4'
-    magenta: '#75507b'
-    cyan:    '#06989a'
-    white:   '#d3d7cf'
+    primary:
+        background: "#080808"
+        foreground: "#d8d8d8"
+    cursor:
+        text: "#080808"
+        cursor: "#cef449"
+    normal:
+        black: "#181818"
+        red: "#cc0000"
+        green: "#4e9a06"
+        yellow: "#cfa000"
+        blue: "#3465a4"
+        magenta: "#75507b"
+        cyan: "#06989a"
+        white: "#d3d7cf"
 
 cursor:
-  style:
-    #   - ▇ Block
-    #   - _ Underline
-    #   - | Beam
-    shape: Beam
-    #   - Never: Prevent the cursor from ever blinking
-    #   - Off: Disable blinking by default
-    #   - On: Enable blinking by default
-    #   - Always: Force the cursor to always blink
-    blinking: Always
-  blink_interval: 200
-  unfocused_hollow: true
-  thickness: 0.3
+    style:
+        #   - ▇ Block
+        #   - _ Underline
+        #   - | Beam
+        shape: Beam
+        #   - Never: Prevent the cursor from ever blinking
+        #   - Off: Disable blinking by default
+        #   - On: Enable blinking by default
+        #   - Always: Force the cursor to always blink
+        blinking: Always
+    blink_interval: 200
+    unfocused_hollow: true
+    thickness: 0.3
 
 key_bindings:
-  - { key: K, mods: Control|Shift, mode: ~Alt, action: ScrollLineUp }
-  - { key: J, mods: Control|Shift, mode: ~Alt, action: ScrollLineDown }
-  - { key: U, mods: Control|Shift, mode: ~Alt, action: ScrollPageUp }
-  - { key: D, mods: Control|Shift, mode: ~Alt, action: ScrollPageDown }
-  - { key: F, mods: Control|Shift, action: ReceiveChar }
+    - { key: K, mods: Control|Shift, mode: ~Alt, action: ScrollLineUp }
+    - { key: J, mods: Control|Shift, mode: ~Alt, action: ScrollLineDown }
+    - { key: U, mods: Control|Shift, mode: ~Alt, action: ScrollPageUp }
+    - { key: D, mods: Control|Shift, mode: ~Alt, action: ScrollPageDown }
+    - { key: F, mods: Control|Shift, action: ReceiveChar }
