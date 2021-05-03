@@ -155,6 +155,8 @@ workspace 6 output $thirdMonitor
 # capture and move
 assign [class="discord"] $ws2
 assign [class="obs"] $ws3
+assign [class="qbittorrent"] $ws3
+assign [class="qBittorrent"] $ws3
 
 # start on
 exec i3-msg workspace 1
@@ -172,7 +174,7 @@ exec i3-msg workspace 1
 # }
 
 #//----------[ Discord ]
-exec discord
+# exec discord
 
 #//----------[ Flameshot ]
 bindsym Print exec flameshot gui
@@ -201,6 +203,10 @@ exec xinput --set-prop 14 'libinput Accel Profile Enabled' 0, 1
 
 # //----------[ Polybar ]
 exec polybar -r catpeasant
+
+#//----------[ Set c920  ]
+exec c920
+exec c920
 
 #//----------[ Terminal ]
 exec i3-sensible-terminal
