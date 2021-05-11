@@ -54,7 +54,9 @@ alias email "thunderbird & disown"
 alias tor "qbittorrent & disown"
 
 # //----------[ feh ]
+alias view do_feh
 alias wall "do_feh -r --randomize --bg-scale ~/Downloads/wallpapers/"
+alias walls "do_feh -r --randomize --bg-scale"
 alias show "do_feh --randomize -z -D 4"
 function do_feh
 	feh -.Z -B "#080808" $argv & disown
@@ -110,7 +112,7 @@ end
 
 #//----------[ VARS ]
 set -x XDG_CONFIG_HOME ~/.config
-set -x QT_QPA_PLATFORMTHEME 'qt5ct'
+# set -x QT_QPA_PLATFORMTHEME 'qt5ct'
 
 #//----------[ PATH ]
 set -x PATH ~/.cargo/bin ~/.local/bin $PATH ~/.zls/x86_64-linux ~/code/bin/
