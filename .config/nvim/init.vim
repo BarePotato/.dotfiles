@@ -232,8 +232,8 @@ set undodir=$HOME/.config/nvim/undo/
 set undofile
 
 set noshowmode
-colo simple-bare
-" colo PaperColor
+" colo simple-bare
+colo PaperColor
 " PaperColor color mods
 hi Normal guibg=None
 hi Comment guifg=#5f875f

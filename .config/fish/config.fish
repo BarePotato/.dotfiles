@@ -11,10 +11,10 @@ end
 
 #//----------[ Alias ]
 # list aliases for Exa
-alias l="exa -Fx --group-directories-first"
-alias lh="exa -Fax --group-directories-first"
-alias ll="exa -lF --no-user --group-directories-first"
-alias la="exa -lFa --no-user --group-directories-first"
+alias l="exa -Fx --group-directories-first --icons"
+alias lh="exa -Fax --group-directories-first --icons"
+alias ll="exa -lF --no-user --group-directories-first --icons"
+alias la="exa -lFa --no-user --group-directories-first --icons"
 alias las="la --sort date"
 # exit
 alias x="exit"
