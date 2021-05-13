@@ -75,7 +75,7 @@ function tv
 			sed -i 's/home\/bare\/mnt\/D\//D:\//g' ~/mnt/C/Users/barek/AppData/Roaming/vlc/ml.xspf
 			sed -i 's/home\/bare\/mnt\/C\//C:\//g' ~/mnt/C/Users/barek/AppData/Roaming/vlc/ml.xspf
 		case "c" or "clean"
-			rm -v ~/mnt/D/TV/**/*.exe ~/mnt/D/TV/**/*.txt ~/mnt/D/TV/**/*.nfo
+			find  ~/mnt/D/TV/ -type f \( -name "*.exe" -o -name "*.txt" -o -name "*.nfo" \) -print -delete
 	end
 end
 
