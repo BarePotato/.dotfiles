@@ -13,6 +13,7 @@ blue = #4080ff
 dark-blue = #003cb3
 
 [bar/catpeasant]
+monitor=DVI-D-0
 bottom=true
 width = 100%
 height = 16
@@ -25,11 +26,16 @@ module-margin-right = 1
 font-0 = FiraCode Nerd Font Mono:size=9;2
 font-1 = Noto Color Emoji:scale=12
 modules-left = i3
-modules-center = eth cpu cputemp gputemp filesystem memory date time
-tray-position = right
-tray-padding = 2
+modules-center = date time
+modules-right = eth cpu cputemp gputemp filesystem memory
+tray-position = left
+tray-padding = 4
+tray-background = ${colors.background}
+tray-offset-x = 16
 cursor-click = pointer
 cursor-scroll = ns-resize
+padding-left = 4
+padding-right = 8
 
 [module/i3]
 type = internal/i3
@@ -127,4 +133,3 @@ screenchange-reload = true
 margin-top = 0
 margin-bottom = 0
 
-; vim:ft=dosini

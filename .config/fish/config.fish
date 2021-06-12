@@ -36,7 +36,7 @@ end
 alias todo="nvim ~/code/bin/twitchy/twitchy.todo"
 # nvim
 alias nm="nvim src/main.rs"
-alias nr="nvim src/**/*.rs"
+alias nr="nvim src/main.rs src/**/*.rs"
 alias n="nvim"
 # bat
 alias cat bat

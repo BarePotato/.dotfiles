@@ -7,7 +7,7 @@ let mapleader=" "
 
 call plug#begin('$HOME/.vimfiles/pluggs')
 " CoC LSP Config
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '4cd2b40390a2dadb56baf3135064f74b148c9211'}
 " Neovim LSP Config
 " Plug 'neovim/nvim-lspconfig'
 " Plug 'nvim-lua/completion-nvim'
@@ -29,6 +29,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'aliva/vim-fish'
 Plug 'ziglang/zig.vim'
+Plug 'tikhomirov/vim-glsl'
+Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
 " CoC LSP Config
@@ -223,6 +225,14 @@ nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 
+function! s:syntax_query() abort
+  for id in synstack(line("."), col("."))
+    execute 'hi' synIDattr(id, "name")
+  endfor
+endfunction
+command! SyntaxQuery call s:syntax_query()
+
+nnoremap <F10> :SyntaxQuery<CR>
 set mouse=a
 
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
@@ -232,15 +242,17 @@ set undodir=$HOME/.config/nvim/undo/
 set undofile
 
 set noshowmode
+" colo gruvbox-material
 " colo simple-bare
 colo PaperColor
+" colo ayu
 " PaperColor color mods
 hi Normal guibg=None
 hi Comment guifg=#5f875f
 
 " CoC Highlights
-hi CocWarningSign      guifg=#ff5f00 ctermfg=202
-hi CocWarningHighlight guifg=#ff5f00 ctermfg=202  cterm=underline gui=underline
-hi CocErrorHighlight   guifg=#FF0000 ctermfg=Red  cterm=underline gui=underline
-hi CocErrorSign 	   guifg=#ff0000 ctermfg=Red
+hi CocWarningSign      guifg=#ff5f00 ctermfg=202 guibg=#1c1c1c ctermbg=234
+hi CocWarningHighlight guifg=#ff5f00 ctermfg=202 cterm=underline gui=underline
+hi CocErrorHighlight   guifg=#FF0000 ctermfg=Red cterm=underline gui=underline
+hi CocErrorSign 	   guifg=#ff0000 ctermfg=Red guibg=#1c1c1c ctermbg=234
 hi CocListBlackBlack   guifg=#262626 guibg=#121212
