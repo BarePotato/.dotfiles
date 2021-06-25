@@ -6,6 +6,7 @@ configuration {
 /*	window-format: "{w}    {c}   {t}";*/
 	hide-scrollbar: true;
 	font: "FiraCode Nerd Font 18";
+	lines: 20;
 }
 
 element-icon { size: 32px; }
