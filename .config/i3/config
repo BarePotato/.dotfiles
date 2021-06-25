@@ -194,7 +194,7 @@ exec unclutter --timeout 2 --ignore-scrolling
 # exec xcompmgr
 
 #//----------[ X Background ]
-exec wall
+exec --no-startup-id feh --randomize --bg-scale ~/Downloads/wallpapers/
 
 # //----------[ Sound Things ]
 exec pasystray
