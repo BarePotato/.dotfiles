@@ -114,6 +114,15 @@ end
 set -x XDG_CONFIG_HOME ~/.config
 # set -x QT_QPA_PLATFORMTHEME 'qt5ct'
 
+#//----------[ MAN ]
+# set -xU MANPAGER 'less -R --use-color -Dd+r -Du+b'
+set -xU LESS_TERMCAP_md (printf "\e[38;5;39m")
+set -xU LESS_TERMCAP_me (printf "\e[0m")
+set -xU LESS_TERMCAP_se (printf "\e[0m")
+set -xU LESS_TERMCAP_so (printf "\e[01;44;33m")
+set -xU LESS_TERMCAP_ue (printf "\e[0m")
+set -xU LESS_TERMCAP_us (printf "\e[38;5;51m")
+
 #//----------[ PATH ]
 set -x PATH ~/.cargo/bin ~/.local/bin $PATH ~/.zls/x86_64-linux ~/code/bin/
 

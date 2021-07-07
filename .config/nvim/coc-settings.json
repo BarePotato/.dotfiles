@@ -3,6 +3,15 @@
         "zls": {
             "command": "zls",
             "filetypes": ["zig"]
+        },
+        "d": {
+            "command": "/home/bare/.dub/packages/.bin/dls-latest/dls",
+            "args": ["--stdio"],
+            "filetypes": ["d"],
+            "trace.server": "off",
+            "rootPatterns": ["dub.json", "dub.sdl"],
+            "initializationOptions": {},
+            "settings": {}
         }
     },
     /*"suggest.noselect": false,*/
