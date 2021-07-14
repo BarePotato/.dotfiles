@@ -5,9 +5,14 @@ background_opacity: 0.9
 
 font:
     normal:
-        family: FiraCode Nerd Font
-        # family: 
-    size: 11
+        # family: FiraCode Nerd Font
+        family: SauceCodePro Nerd Font
+    size: 10
+
+    offset:
+        y: 1
+
+    # use_thin_strokes: false
 
 draw_bold_text_with_bright_colors: true
 
