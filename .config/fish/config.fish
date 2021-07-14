@@ -112,6 +112,7 @@ function pwd_i3-sensible-terminal
 	i3-sensible-terminal --working-directory (cat ~/.local/tmp/whereami) &
 end
 
+
 #//----------[ VARS ]
 set -x XDG_CONFIG_HOME ~/.config
 # set -x QT_QPA_PLATFORMTHEME 'qt5ct'
