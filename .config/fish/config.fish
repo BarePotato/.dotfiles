@@ -38,6 +38,8 @@ alias todo="nvim ~/code/bin/twitchy/twitchy.todo"
 alias nm="nvim src/main.rs"
 alias nr="nvim src/main.rs src/**/*.rs"
 alias n="nvim"
+# fd
+alias find fd
 # bat
 alias cat bat
 # procs
@@ -75,7 +77,7 @@ function tv
 			sed -i 's/home\/bare\/mnt\/D\//D:\//g' ~/mnt/C/Users/barek/AppData/Roaming/vlc/ml.xspf
 			sed -i 's/home\/bare\/mnt\/C\//C:\//g' ~/mnt/C/Users/barek/AppData/Roaming/vlc/ml.xspf
 		case "c" or "clean"
-			find  ~/mnt/D/TV/ -type f \( -name "*.exe" -o -name "*.txt" -o -name "*.nfo" \) -print -delete
+			/usr/bin/find ~/mnt/D/TV/ -type f \( -name "*.exe" -o -name "*.txt" -o -name "*.nfo" \) -print -delete
 	end
 end
 
