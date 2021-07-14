@@ -7,7 +7,8 @@ let mapleader=" "
 
 call plug#begin('$HOME/.vimfiles/pluggs')
 " CoC LSP Config
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '4cd2b40390a2dadb56baf3135064f74b148c9211'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '4cd2b40390a2dadb56baf3135064f74b148c9211'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Neovim LSP Config
 " Plug 'neovim/nvim-lspconfig'
 " Plug 'nvim-lua/completion-nvim'
@@ -23,14 +24,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 " Syntax
-" Plug 'vimwiki/vimwiki'
-Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'aliva/vim-fish'
 Plug 'ziglang/zig.vim'
 Plug 'tikhomirov/vim-glsl'
-Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
 " CoC LSP Config
@@ -47,10 +46,15 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_theme='bare'
-let g:airline_symbols.colnr = ':'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = ' '
-let g:airline_symbols.maxlinenr = ' '
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_z = '%l%#__accent_bold#:%#__restore__#%v%#__accent_bold#/%#__restore__#%L'
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '🌱'
+let g:airline_symbols.notexists = '❔'
+let g:airline_symbols.dirty = '❕'
+let g:airline_symbols.modified = '➕'
 
 "---- FZF
 nmap <C-p> :Files<CR>
@@ -87,6 +91,10 @@ command! Trail :%s/\s\+$//e
 
 " let clipboarDCreateDefaultMappings
 set cb=unnamedplus
+
+" share registers between neovim instances
+autocmd TextYankPost * wshada
+autocmd FocusGained * rshada
 
 " Don't enter Ex mode
 map Q <Nop>
@@ -134,6 +142,9 @@ nmap <leader>wl <C-w><C-l>
 nmap <leader>ws <C-w><C-s>
 nmap <leader>wv <C-w><C-v>
 nmap <leader>wq <C-w><C-q>
+nmap <leader>w= <C-w>=
+nmap <leader>w, <C-w><
+nmap <leader>w. <C-w>>
 
 " page up/down
 nmap <leader>u <C-u>
@@ -209,9 +220,6 @@ set numberwidth=2
 set showmatch
 set matchpairs+=<:>
 
-" insert a comment header
-nnoremap <silent> gh i//----------[  ]<left><left>
-
 set ignorecase
 set smartcase
 set updatetime=300
@@ -237,6 +245,7 @@ endfunction
 command! SyntaxQuery call s:syntax_query()
 
 nnoremap <F10> :SyntaxQuery<CR>
+
 set mouse=a
 
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
@@ -246,17 +255,29 @@ set undodir=$HOME/.config/nvim/undo/
 set undofile
 
 set noshowmode
-" colo gruvbox-material
+
+" color column
+set colorcolumn=60,80,120
+
 " colo simple-bare
+set background=dark
 colo PaperColor
 " colo ayu
 " PaperColor color mods
 hi Normal guibg=None
 hi Comment guifg=#5f875f
+hi ColorColumn guibg=None
+
+" syntax adjustments
+" syn keyword rustFunc fn nextgroup=rustIdentifier skipwhite skipempty
+
+" let g:coc_default_semantic_highlight_groups = 0
 
 " CoC Highlights
 hi CocWarningSign      guifg=#ff5f00 ctermfg=202 guibg=#1c1c1c ctermbg=234
 hi CocWarningHighlight guifg=#ff5f00 ctermfg=202 cterm=underline gui=underline
+hi clear CocFadeOut	
+hi link CocFadeOut CocWarningHighlight
 hi CocErrorHighlight   guifg=#FF0000 ctermfg=Red cterm=underline gui=underline
 hi CocErrorSign 	   guifg=#ff0000 ctermfg=Red guibg=#1c1c1c ctermbg=234
 hi CocListBlackBlack   guifg=#262626 guibg=#121212
