@@ -15,6 +15,8 @@
         }
     },
     /*"suggest.noselect": false,*/
+    "coc.preferences.semanticTokensHighlights": false,
+    "coc.preferences.colorSupport": false,
     "diagnostic.errorSign": "",
     "diagnostic.warningSign": "",
     "diagnostic.hintSign": "ℹ️",
