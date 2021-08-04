@@ -20,16 +20,20 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
-" The masters files
+Plug 'lilydjwg/colorizer'
+" The masters files 
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
 " Syntax
 Plug 'cespare/vim-toml'
 Plug 'aliva/vim-fish'
 Plug 'ziglang/zig.vim'
 Plug 'tikhomirov/vim-glsl'
+" Color
+Plug 'owickstrom/vim-colors-paramount'
 call plug#end()
 
 " CoC LSP Config
@@ -56,10 +60,16 @@ let g:airline_symbols.notexists = '❔'
 let g:airline_symbols.dirty = '❕'
 let g:airline_symbols.modified = '➕'
 
+"---- Auto-Pairs
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '<M-b>'
+
 "---- FZF
 nmap <C-p> :Files<CR>
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-nmap <C-f> :Find<Space>
+command! -bang -nargs=* Find call fzf#vim#grep('rg -g "!target/" --column --line-number --no-heading --fixed-strings --ignore-case --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+nmap <C-f> :Find<CR>
+nnoremap <C-b> :Buffer<CR>
+nnoremap <C-t> :Windows<CR>
 
 "---- Undotree
 nnoremap <F5> :UndotreeToggle<cr>
@@ -102,12 +112,11 @@ map Q <Nop>
 " Terminal Stuff
 " exit integrated terminal mode - assumes buffer
 tnoremap <Esc> <C-\><C-N>:bd!<CR>
-" powershell
-command! -nargs=0 Term :ene | call termopen('pwsh') | startinsert
 " cargo run if rust
 command! -nargs=*  Run :call <SID>CargoRun(<q-args>)
 function! s:CargoRun(param)
 	if &filetype == 'rust'
+		:split
 		ene | call termopen('cargo r -- ' . (a:param)) | startinsert
 	endif
 endfunction
@@ -115,6 +124,7 @@ endfunction
 command! -nargs=0 Build :call <SID>CargoBuild()
 function! s:CargoBuild()
 	if &filetype == 'rust'
+		:split
 		ene | call termopen('cargo build') | startinsert
 	endif
 endfunction
@@ -122,6 +132,7 @@ endfunction
 command! -nargs=0 Check :call <SID>CargoCheck()
 function! s:CargoCheck()
 	if &filetype == 'rust'
+		:split
 		ene | call termopen('cargo check') | startinsert
 	endif
 endfunction
@@ -129,6 +140,7 @@ endfunction
 command! -nargs=0 Doc :call <SID>CargoDoc()
 function! s:CargoDoc()
 	if &filetype == 'rust'
+		:split
 		:silent !cargo doc -q --open
 	endif
 endfunction
@@ -146,6 +158,9 @@ nmap <leader>w= <C-w>=
 nmap <leader>w, <C-w><
 nmap <leader>w. <C-w>>
 
+" buffers
+nmap <silent> <leader>bd :bd<CR>
+
 " page up/down
 nmap <leader>u <C-u>
 nmap <leader>d <C-d>
@@ -158,7 +173,7 @@ nnoremap <leader>p "0p
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " edit coc-settings.json
-nmap <silent> <leader>cv :e $HOME/.config/nvim/coc-settings.json<CR>
+nmap <silent> <leader>cv :e $XDG_CONFIG_HOME/nvim/coc-init.vim<CR>:CocConfig<CR>
 " edit alacritty.yml
 nmap <silent> <leader>av :e $HOME/.config/alacritty/alacritty.yml<CR>
 
@@ -236,6 +251,7 @@ set scrolloff=10
 nnoremap ; :
 nnoremap j gj
 nnoremap k gk
+nnoremap <C-k> k
 
 function! s:syntax_query() abort
   for id in synstack(line("."), col("."))
@@ -261,23 +277,23 @@ set colorcolumn=60,80,120
 
 " colo simple-bare
 set background=dark
-colo PaperColor
-" colo ayu
-" PaperColor color mods
+colo paramount
 hi Normal guibg=None
-hi Comment guifg=#5f875f
+" hi Comment guifg=#5f875f
 hi ColorColumn guibg=None
+" hi String guifg=#d6be8d
+" hi NonText guibg=bg
 
-" syntax adjustments
-" syn keyword rustFunc fn nextgroup=rustIdentifier skipwhite skipempty
+set nolist
+set listchars=
 
 " let g:coc_default_semantic_highlight_groups = 0
 
 " CoC Highlights
 hi CocWarningSign      guifg=#ff5f00 ctermfg=202 guibg=#1c1c1c ctermbg=234
 hi CocWarningHighlight guifg=#ff5f00 ctermfg=202 cterm=underline gui=underline
-hi clear CocFadeOut	
+hi clear CocFadeOut
 hi link CocFadeOut CocWarningHighlight
 hi CocErrorHighlight   guifg=#FF0000 ctermfg=Red cterm=underline gui=underline
-hi CocErrorSign 	   guifg=#ff0000 ctermfg=Red guibg=#1c1c1c ctermbg=234
+hi CocErrorSign        guifg=#ff0000 ctermfg=Red guibg=#1c1c1c ctermbg=234
 hi CocListBlackBlack   guifg=#262626 guibg=#121212
