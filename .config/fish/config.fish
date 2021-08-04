@@ -23,6 +23,7 @@ alias cls="clear"
 # poweroff
 alias die="poweroff"
 # git dotfiles
+# git init --bare $HOME/.cfg
 alias doot="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 # twitchy
 function twitchy
@@ -36,7 +37,7 @@ end
 alias todo="nvim ~/code/bin/twitchy/twitchy.todo"
 # nvim
 alias nm="nvim src/main.rs"
-alias nr="nvim src/main.rs src/**/*.rs"
+alias nr="nvim src/**/*.rs"
 alias n="nvim"
 # fd
 alias find fd
@@ -96,7 +97,7 @@ end
 begin
 	set --local FZF_PATH /usr/share/fish/vendor_functions.d/fzf_key_bindings.fish
 	if test -e $FZF_PATH
-		set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+		set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!.git/" -g "!target/"'
 		fzf_key_bindings
 	end
 end
