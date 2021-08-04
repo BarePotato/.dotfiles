@@ -1,6 +1,7 @@
 "---- CoC
 " call formatter
 nmap <leader>ff :call <SID>FormatOrElse()<CR>
+nmap <leader>fw :call <SID>FormatOrElse()<CR>:w<CR>
 " command! -nargs=0 Format :call CocAction('format')
 " command! -nargs=0 Prettier :CocCommand prettier.formatFile
 function! s:FormatOrElse()
