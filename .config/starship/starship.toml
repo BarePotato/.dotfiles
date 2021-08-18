@@ -1,3 +1,5 @@
+# MAKE SURE TO SYMLINK THIS IN TO ~/.config/startship.toml IF STORING ELSEWHERE
+
 add_newline = false
 
 # Use custom format
